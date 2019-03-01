@@ -40,7 +40,7 @@ public class BFrame extends JFrame {
      */
     private void move() {
         while (true) {
-            for (ShapeList.Shape s : shapeList.shapeList) {
+            for (Shape s : shapeList.shapeList) {
                 // Get shape's current parameters
                 int x = s.getX();
                 int y = s.getY();

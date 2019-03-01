@@ -35,6 +35,6 @@ public class BPanel extends JPanel {
         super.paintComponent(g2d);
 
         // Paint all shapes
-        shapeList.draw(g2d);
+        shapeList.drawAllShapes(g2d);
     }
 }
