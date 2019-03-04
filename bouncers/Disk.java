@@ -10,6 +10,6 @@ public class Disk extends Shape {
 
     public void draw(Graphics g) {
         g.setColor(Color.BLUE);
-        g.fillOval(this.getX(), this.getY(), this.getSize(), this.getSize());
+        g.fillOval(x, y, size, size);
     }
 }

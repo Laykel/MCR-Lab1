@@ -10,6 +10,6 @@ public class Square extends Shape {
 
     public void draw(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect(this.getX(), this.getY(), this.getSize(), this.getSize());
+        g.fillRect(x, y, size, size);
     }
 }
