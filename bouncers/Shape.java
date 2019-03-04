@@ -7,18 +7,18 @@ import java.awt.Graphics;
  * Class Shape
  */
 abstract public class Shape {
-    private static final int MAX_SIZE = 60;
     private static final int MIN_SIZE = 30;
+    private static final int MAX_SIZE = 60;
     private static final int MAX_SPEED = 5;
     private static final int INITIAL_PANEL_WIDTH = 750;
     private static final int INITIAL_PANEL_HEIGHT = 550;
 
     // Coordinates
     protected int x, y;
-    // Movement vector
-    private int dx, dy;
     // Width and height of the shape
     protected int size;
+    // Movement vector
+    private int dx, dy;
 
     /**
      * Constructor
@@ -35,8 +35,8 @@ abstract public class Shape {
         y = rand.nextInt(INITIAL_PANEL_HEIGHT - size);
 
         // Set movement vector
-        dx = rand.nextInt(MAX_SPEED - -MAX_SPEED) + -MAX_SPEED;
-        dy = rand.nextInt(MAX_SPEED - -MAX_SPEED) + -MAX_SPEED;
+        dx = rand.nextInt((MAX_SPEED + 1) - -MAX_SPEED) + -MAX_SPEED;
+        dy = rand.nextInt((MAX_SPEED + 1) - -MAX_SPEED) + -MAX_SPEED;
     }
 
     public void move(int panelWidth, int panelHeight) {
