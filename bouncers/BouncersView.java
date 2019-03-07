@@ -63,7 +63,7 @@ public class BouncersView implements Displayer {
     /**
      * Method controlling the shapes' movements
      */
-    private void run() {
+    public void run() {
         // Create a timer object
         Timer timer = new Timer();
 
