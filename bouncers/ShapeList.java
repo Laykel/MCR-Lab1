@@ -7,7 +7,7 @@ import java.awt.Graphics;
  * Class ShapeList
  */
 public class ShapeList {
-    LinkedList<Shape> shapeList;
+    private LinkedList<Shape> shapeList;
 
     /**
      * Constructor
@@ -34,5 +34,9 @@ public class ShapeList {
         for (Shape s : shapeList) {
             s.draw(g);
         }
+    }
+
+    public LinkedList<Shape> getShapeList() {
+        return shapeList;
     }
 }
