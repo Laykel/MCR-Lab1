@@ -1,7 +1,9 @@
 package bouncers;
 
+import bouncers.bouncable.Shape;
+
+import java.awt.*;
 import java.util.LinkedList;
-import java.awt.Graphics;
 
 /**
  * Class ShapeList
@@ -32,9 +34,11 @@ public class ShapeList {
      *
      * @param g the Graphics object on which to paint
      */
-    public void drawAllShapes(Graphics g) {
+    public void drawAllShapes(Graphics2D g) {
         for (Shape s : shapeList) {
-            s.draw(g);
+            s.getRenderer().display(g,s);
+
+            //s.draw(g);
         }
     }
 }

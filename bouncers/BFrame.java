@@ -1,5 +1,7 @@
 package bouncers;
 
+import bouncers.bouncable.Shape;
+
 import javax.swing.JFrame;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +24,11 @@ public class BFrame extends JFrame {
     // The panel where the magic happens
     private BPanel pan;
     // Generation of a list of random shapes
-    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES,new BorderFactory());
+
+    RendererBorder rendereBorder = new RendererBorder();
+    RendererFill rendererFill= new RendererFill();
+
+    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES,new BorderFactory(rendereBorder));
 
     /**
      * Constructor

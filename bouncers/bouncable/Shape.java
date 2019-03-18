@@ -1,4 +1,7 @@
-package bouncers;
+package bouncers.bouncable;
+
+import bouncers.Bouncable;
+import bouncers.Renderable;
 
 import java.util.Random;
 import java.awt.Graphics;
@@ -6,7 +9,7 @@ import java.awt.Graphics;
 /**
  * Class Shape
  */
-abstract public class Shape {
+abstract public class Shape implements Bouncable{
     private static final int MIN_SIZE = 30;
     private static final int MAX_SIZE = 60;
     private static final int MAX_SPEED = 5;
@@ -17,14 +20,18 @@ abstract public class Shape {
     protected int x, y;
     // Width and height of the shape
     protected int size;
+
+    protected Renderable renderer;
     // Movement vector
     private int dx, dy;
 
     /**
      * Constructor
      */
-    public Shape() {
+    public Shape(Renderable renderer) {
         Random rand = new Random();
+
+        this.renderer = renderer;
 
         // Set size
         size = rand.nextInt(MAX_SIZE - MIN_SIZE) + MIN_SIZE;
@@ -39,6 +46,10 @@ abstract public class Shape {
         dy = rand.nextInt((MAX_SPEED + 1) - -MAX_SPEED) + -MAX_SPEED;
     }
 
+
+
+
+    
     public void move(int panelWidth, int panelHeight) {
         // Adjust movement vectors
         // Bounce if on the wall on the left or on the right
@@ -53,9 +64,13 @@ abstract public class Shape {
         setPosition(x + dx, y + dy);
     }
 
+    @Override
+    public Renderable getRenderer(){
+        return renderer;
+    }
+
     /**
      */
-    abstract public void draw(Graphics g);
 
     public void setPosition(int x, int y) {
         this.x = x;
