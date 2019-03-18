@@ -28,7 +28,7 @@ public class BFrame extends JFrame {
     RendererBorder rendereBorder = new RendererBorder();
     RendererFill rendererFill= new RendererFill();
 
-    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES,new BorderFactory(rendereBorder));
+    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES, new BorderFactory(rendereBorder));
 
     /**
      * Constructor
@@ -69,7 +69,7 @@ public class BFrame extends JFrame {
             @Override
             public void run() {
                 // Change every shape's coordinates
-                for (Shape shape : shapeList.shapeList) {
+                for (Shape shape : shapeList.getShapeList()) {
                     shape.move(pan.getWidth(), pan.getHeight());
                 }
 

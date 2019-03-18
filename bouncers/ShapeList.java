@@ -18,7 +18,7 @@ public class ShapeList {
      *
      * @param nbrOfShapes The number of shapes to generate randomly
      */
-    public ShapeList(int nbrOfShapes,ShapeFactory factory) {
+    public ShapeList(int nbrOfShapes, ShapeFactory factory) {
         shapeList = new LinkedList<>();
 
         for (int i = 0; i < nbrOfShapes / 2; i++) {

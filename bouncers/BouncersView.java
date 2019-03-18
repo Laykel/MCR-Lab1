@@ -1,5 +1,7 @@
 package bouncers;
 
+import bouncers.bouncable.Shape;
+
 import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,7 +29,7 @@ public class BouncersView /*implements Displayer*/ {
     private JFrame frame;
     private JPanel panel;
     // Generation of a list of random shapes
-    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES);
+    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES, new BorderFactory(new RendererBorder()));
 
     /**
      * Private constructor so that there are no public constructors
