@@ -51,7 +51,7 @@ générées : les cercles et carrés pleins de couleur respectivement bleue et o
 Veiller à soigner l'implémentation et effectuer tous les refactorings nécessaires afin que le code produit soit le plus élégant possible selon les standards de programmation POO. Veiller en particulier à ce qu'un nombre minimal d'objets soit instancié.
 
 ### Annexe
-```
+```java
 public interface Displayer {
     int getWidth();
     int getHeight();
