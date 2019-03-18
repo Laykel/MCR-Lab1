@@ -9,6 +9,10 @@ import java.util.TimerTask;
  */
 @SuppressWarnings("serial")
 public class BFrame extends JFrame {
+
+    private static BFrame instance;
+
+
     // Number of refresh per second
     private static final int UPDATE_RATE = 80;
     private static final int NBR_OF_SHAPES = 40;
@@ -18,7 +22,7 @@ public class BFrame extends JFrame {
     // The panel where the magic happens
     private BPanel pan;
     // Generation of a list of random shapes
-    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES);
+    private ShapeList shapeList = new ShapeList(NBR_OF_SHAPES,new BorderFactory());
 
     /**
      * Constructor
@@ -38,6 +42,14 @@ public class BFrame extends JFrame {
         move();
     }
 
+
+
+    public static BFrame getInstance() {
+        if (instance == null)
+            instance = new BFrame(); // instanciation retardée
+        return instance;
+    }
+
     /**
      * Method controlling the shapes' movements
      */
@@ -46,7 +58,7 @@ public class BFrame extends JFrame {
         Timer timer = new Timer();
 
         // And schedule a task to run immediately, and then
-        // every UPDATE_RATE per second
+        // every UPDATE_RATE per secondm
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {

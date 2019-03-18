@@ -3,13 +3,10 @@ package bouncers;
 import java.awt.Graphics;
 import java.awt.Color;
 
-public class Disk extends Shape {
-    public Disk() {
-        super();
-    }
+public abstract class Disk extends Shape {
 
-    public void draw(Graphics g) {
-        g.setColor(Color.BLUE);
-        g.fillOval(x, y, size, size);
-    }
+    public Disk() { super(); }
+
+    public abstract  void draw(Graphics g) ;
+
 }
