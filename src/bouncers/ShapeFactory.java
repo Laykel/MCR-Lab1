@@ -7,7 +7,7 @@ public abstract class ShapeFactory {
 
     protected Renderable renderer;
 
-    public ShapeFactory(Renderable renderer){
+    public ShapeFactory(Renderable renderer) {
         this.renderer = renderer;
     }
 

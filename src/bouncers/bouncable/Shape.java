@@ -9,7 +9,7 @@ import java.awt.Graphics;
 /**
  * Class Shape
  */
-abstract public class Shape implements Bouncable{
+abstract public class Shape implements Bouncable {
     private static final int MIN_SIZE = 30;
     private static final int MAX_SIZE = 60;
     private static final int MAX_SPEED = 5;
@@ -49,7 +49,7 @@ abstract public class Shape implements Bouncable{
 
 
 
-    
+
     public void move(int panelWidth, int panelHeight) {
         // Adjust movement vectors
         // Bounce if on the wall on the left or on the right
