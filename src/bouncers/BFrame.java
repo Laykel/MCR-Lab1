@@ -1,12 +1,9 @@
 package bouncers;
 
-import bouncers.bouncable.Shape;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.Image;
 
 import java.awt.event.KeyAdapter;
@@ -58,8 +55,10 @@ public class BFrame extends JFrame implements Displayer {
 
                 // Paint all shapes
                 g.drawImage(panelImage, getWidth(), getHeight(), null);
+                panelImage = null;
             }
         };
+
         this.setContentPane(panel);
 
         panel.setFocusable(true);
@@ -95,7 +94,9 @@ public class BFrame extends JFrame implements Displayer {
 
     @Override
     public Graphics2D getGraphics() {
-        panelImage = panel.createImage(getWidth(), getHeight());
+        if (panelImage == null) {
+            panelImage = panel.createImage(getWidth(), getHeight());
+        }
         return (Graphics2D) panelImage.getGraphics();
     }
 

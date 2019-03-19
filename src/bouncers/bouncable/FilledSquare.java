@@ -1,13 +1,11 @@
 package bouncers.bouncable;
 
-import bouncers.*;
-
-import java.awt.*;
-import java.awt.Shape;
+import bouncers.FilledRenderer;
+import java.awt.Color;
 
 public class FilledSquare extends Square  {
     public FilledSquare() {
-        super(new RendererFilled());
+        super(new FilledRenderer());
     }
 
     @Override

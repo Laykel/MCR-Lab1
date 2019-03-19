@@ -1,6 +1,7 @@
 package bouncers;
 
-import java.awt.*;
+import java.awt.Shape;
+import java.awt.Color;
 
 public interface Bouncable {
     void draw();

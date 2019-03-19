@@ -1,19 +1,16 @@
 package bouncers.bouncable;
 
 import bouncers.*;
-
 import java.util.Random;
-import java.awt.Graphics;
 
 /**
- * Class Shape
+ * Class BShape
  */
-public abstract class Shape implements Bouncable {
+public abstract class BShape implements Bouncable {
+    // Shape properties
     private static final int MIN_SIZE = 30;
     private static final int MAX_SIZE = 60;
     private static final int MAX_SPEED = 5;
-    private static final int INITIAL_PANEL_WIDTH = 750;
-    private static final int INITIAL_PANEL_HEIGHT = 550;
 
     // Coordinates
     protected int x, y;
@@ -27,7 +24,7 @@ public abstract class Shape implements Bouncable {
     /**
      * Constructor
      */
-    public Shape(Renderable renderer) {
+    public BShape(Renderable renderer) {
         Random rand = new Random();
 
         this.renderer = renderer;
@@ -36,31 +33,28 @@ public abstract class Shape implements Bouncable {
         size = rand.nextInt(MAX_SIZE - MIN_SIZE) + MIN_SIZE;
 
         // x is the width of the panel - the width of the shape
-        x = rand.nextInt(INITIAL_PANEL_WIDTH - size);
+        x = rand.nextInt(BFrame.getInstance().getWidth() - size);
         // y is the height of the panel - the height of the shape
-        y = rand.nextInt(INITIAL_PANEL_HEIGHT - size);
+        y = rand.nextInt(BFrame.getInstance().getHeight() - size);
 
         // Set movement vector
         dx = rand.nextInt((MAX_SPEED + 1) - -MAX_SPEED) + -MAX_SPEED;
         dy = rand.nextInt((MAX_SPEED + 1) - -MAX_SPEED) + -MAX_SPEED;
     }
 
-    public void move(int panelWidth, int panelHeight) {
+    @Override
+    public void move() {
         // Adjust movement vectors
         // Bounce if on the wall on the left or on the right
-        if (x + size + dx > panelWidth || x + dx < 0)
+        if (x + size + dx > BFrame.getInstance().getWidth() || x + dx < 0)
             setMotion(-dx, dy);
 
         // Bounce if on the wall at the bottom or on top
-        if (y + size + dy > panelHeight || y + dy < 0)
+        if (y + size + dy > BFrame.getInstance().getHeight() || y + dy < 0)
             setMotion(dx, -dy);
 
-        // Execute movement
+        // Move the shape
         setPosition(x + dx, y + dy);
-    }
-
-    public void move() {
-        move(500, 500);
     }
 
     @Override

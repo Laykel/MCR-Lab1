@@ -1,12 +1,12 @@
 package bouncers;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
-public class RendererFilled implements Renderable {
+public class FilledRenderer implements Renderable {
     @Override
     public void display(Graphics2D g, Bouncable b) {
         g.setColor(b.getColor());
-        g.draw(b.getShape()); // Get shape from bouncable
+        g.draw(b.getShape());
         g.fill(b.getShape());
     }
 }

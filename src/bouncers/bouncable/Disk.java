@@ -1,12 +1,16 @@
 package bouncers.bouncable;
 
-import bouncers.Bouncable;
 import bouncers.Renderable;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 
-import java.awt.Graphics;
-
-public abstract class Disk extends Shape {
+public abstract class Disk extends BShape {
     public Disk(Renderable renderer) {
         super(renderer);
+    }
+
+    @Override
+    public Shape getShape() {
+        return new Ellipse2D.Double(x, y, size, size);
     }
 }

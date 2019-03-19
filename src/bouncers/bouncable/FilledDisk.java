@@ -1,19 +1,11 @@
 package bouncers.bouncable;
 
-import bouncers.*;
-
-import java.awt.*;
-import java.awt.Shape;
-import java.awt.geom.Ellipse2D;
+import bouncers.FilledRenderer;
+import java.awt.Color;
 
 public class FilledDisk extends Disk {
     public FilledDisk() {
-        super(new RendererFilled());
-    }
-
-    @Override
-    public Shape getShape() {
-        return new Ellipse2D.Double(x, y, size, size);
+        super(new FilledRenderer());
     }
 
     @Override

@@ -1,13 +1,11 @@
 package bouncers.bouncable;
 
-import bouncers.*;
-
-import java.awt.*;
-import java.awt.Shape;
+import bouncers.BorderRenderer;
+import java.awt.Color;
 
 public class BorderSquare extends Square {
     public BorderSquare() {
-       super(new RendererBorder());
+       super(new BorderRenderer());
     }
 
     @Override

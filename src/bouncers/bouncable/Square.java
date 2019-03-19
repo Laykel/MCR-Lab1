@@ -1,13 +1,10 @@
 package bouncers.bouncable;
 
-import bouncers.Bouncable;
 import bouncers.Renderable;
-
-import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.Rectangle;
 
-public abstract class Square extends Shape implements Bouncable {
+public abstract class Square extends BShape {
     public Square(Renderable renderer) {
         super(renderer);
     }

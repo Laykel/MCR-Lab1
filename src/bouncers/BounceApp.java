@@ -1,7 +1,5 @@
 package bouncers;
 
-import bouncers.bouncable.*;
-
 import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -12,9 +10,11 @@ import java.awt.event.KeyEvent;
 public class BounceApp {
     private LinkedList<Bouncable> bouncers = new LinkedList<>();
 
+    // The frame for the main view, singleton with access to panel properties
     private BFrame frame;
 
-    private static final int UPDATE_RATE = 80;
+    // Rate at which the redrawing will happen in milliseconds
+    private static final int UPDATE_RATE = 40;
 
     public BounceApp() {
         frame = BFrame.getInstance();
@@ -57,16 +57,16 @@ public class BounceApp {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                // Callback to paintComponent()
-                frame.repaint();
 
                 // Change every shape's coordinates
                 for (Bouncable bouncer : bouncers) {
                     bouncer.move();
                     bouncer.draw();
                 }
+                // Callback to paintComponent()
+                frame.repaint();
             }
-        }, 0, 1000 / UPDATE_RATE);
+        }, 0, UPDATE_RATE);
     }
 
     public static void main(String ... args) {

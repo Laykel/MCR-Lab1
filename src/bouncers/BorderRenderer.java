@@ -1,8 +1,8 @@
 package bouncers;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
-public class RendererBorder implements Renderable {
+public class BorderRenderer implements Renderable {
     @Override
     public void display(Graphics2D g, Bouncable b) {
         g.setColor(b.getColor());
