@@ -5,22 +5,13 @@ import bouncers.Renderable;
 import java.awt.*;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
-
+/**
+ * Class Shape
+ */
 public class FilledDisk extends Disk {
 
 
     public FilledDisk(Renderable renderer) { super(renderer); }
-
-
-    @Override
-    public void draw() {
-
-    }
-
-    @Override
-    public void move() {
-
-    }
 
     @Override
     public Shape getShape() {

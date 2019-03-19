@@ -3,13 +3,14 @@ package bouncers.bouncable;
 import bouncers.Bouncable;
 import bouncers.Renderable;
 
+import java.awt.*;
 import java.util.Random;
-import java.awt.Graphics;
 
 /**
  * Class Shape
  */
 abstract public class Shape implements Bouncable{
+
     private static final int MIN_SIZE = 30;
     private static final int MAX_SIZE = 60;
     private static final int MAX_SPEED = 5;
@@ -20,7 +21,7 @@ abstract public class Shape implements Bouncable{
     protected int x, y;
     // Width and height of the shape
     protected int size;
-
+    //renderer used for display
     protected Renderable renderer;
     // Movement vector
     private int dx, dy;
@@ -29,6 +30,7 @@ abstract public class Shape implements Bouncable{
      * Constructor
      */
     public Shape(Renderable renderer) {
+
         Random rand = new Random();
 
         this.renderer = renderer;
@@ -49,8 +51,9 @@ abstract public class Shape implements Bouncable{
 
 
 
-    
-    public void move(int panelWidth, int panelHeight) {
+    /**
+     */
+    public void checkCollision(int panelWidth, int panelHeight) {
         // Adjust movement vectors
         // Bounce if on the wall on the left or on the right
         if (x + size + dx > panelWidth || x + dx < 0)
@@ -60,13 +63,26 @@ abstract public class Shape implements Bouncable{
         if (y + size + dy > panelHeight || y + dy < 0)
             setMotion(dx, -dy);
 
-        // Execute movement
-        setPosition(x + dx, y + dy);
+    }
+
+    /**
+     */
+    @Override
+    public Renderable getRenderer(){
+
+        return renderer;
     }
 
     @Override
-    public Renderable getRenderer(){
-        return renderer;
+    public void draw() {
+
+    }
+
+    @Override
+    public void move(){
+
+        // Execute movement
+        setPosition(x + dx, y + dy);
     }
 
     /**
@@ -76,7 +92,8 @@ abstract public class Shape implements Bouncable{
         this.x = x;
         this.y = y;
     }
-
+    /**
+     */
     public void setMotion(int dx, int dy) {
         this.dx = dx;
         this.dy = dy;

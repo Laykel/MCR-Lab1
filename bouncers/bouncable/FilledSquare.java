@@ -9,19 +9,6 @@ public class FilledSquare extends Square  {
 
     public FilledSquare(Renderable renderer) { super(renderer); }
 
-
-    @Override
-    public void draw() {
-
-
-
-    }
-
-    @Override
-    public void move() {
-
-    }
-
     @Override
     public Shape getShape() {
         return new Rectangle(x,y,size,size);
@@ -30,6 +17,6 @@ public class FilledSquare extends Square  {
 
     @Override
     public Color getColor() {
-        return Color.GREEN;
+        return Color.ORANGE;
     }
 }

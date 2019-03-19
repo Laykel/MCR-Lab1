@@ -11,17 +11,6 @@ public class BorderDisk extends Disk {
 
     public BorderDisk(Renderable renderer) { super(renderer); }
 
-
-    @Override
-    public void draw() {
-
-    }
-
-    @Override
-    public void move() {
-
-    }
-
     @Override
     public Shape getShape() {
         return  new Ellipse2D.Double(x,y,size,size);

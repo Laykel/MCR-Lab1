@@ -12,6 +12,8 @@ import java.awt.RenderingHints;
 public class BPanel extends JPanel {
     private ShapeList shapeList;
 
+    private Graphics2D g2d;
+
     /**
      * Constructor
      */
@@ -27,7 +29,7 @@ public class BPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         // Use Graphics2D for awesome antialiasing
-        Graphics2D g2d = (Graphics2D) g;
+         g2d = (Graphics2D) g;
 
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                              RenderingHints.VALUE_ANTIALIAS_ON);
@@ -37,4 +39,5 @@ public class BPanel extends JPanel {
         // Paint all shapes
         shapeList.drawAllShapes(g2d);
     }
+
 }

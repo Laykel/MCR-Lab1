@@ -5,7 +5,17 @@ import bouncers.bouncable.FilledSquare;
 
 public  class FilledFactory extends ShapeFactory{
 
-    public FilledFactory(RendererFill renderer){super(renderer);}
+    private static FilledFactory instance;
+
+    private FilledFactory(RendererFill renderer){super(renderer);}
+
+    public static FilledFactory getInstance(RendererFill renderer){
+
+        if (instance == null)
+            instance = new FilledFactory(renderer);// instanciation retardée
+
+        return instance;
+    }
 
     @Override
     public FilledDisk createDisk() {
