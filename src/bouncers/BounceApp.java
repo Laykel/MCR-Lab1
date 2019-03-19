@@ -57,14 +57,14 @@ public class BounceApp {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                // Callback to paintComponent()
+                frame.repaint();
 
                 // Change every shape's coordinates
                 for (Bouncable bouncer : bouncers) {
                     bouncer.move();
                     bouncer.draw();
                 }
-                // Callback to paintComponent()
-                frame.repaint();
             }
         }, 0, UPDATE_RATE);
     }
