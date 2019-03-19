@@ -20,10 +20,10 @@ abstract public class Shape implements Bouncable {
     protected int x, y;
     // Width and height of the shape
     protected int size;
-
-    protected Renderable renderer;
     // Movement vector
     private int dx, dy;
+
+    protected Renderable renderer;
 
     /**
      * Constructor
@@ -46,10 +46,6 @@ abstract public class Shape implements Bouncable {
         dy = rand.nextInt((MAX_SPEED + 1) - -MAX_SPEED) + -MAX_SPEED;
     }
 
-
-
-
-
     public void move(int panelWidth, int panelHeight) {
         // Adjust movement vectors
         // Bounce if on the wall on the left or on the right
@@ -65,13 +61,12 @@ abstract public class Shape implements Bouncable {
     }
 
     @Override
-    public Renderable getRenderer(){
+    public Renderable getRenderer() {
         return renderer;
     }
 
     /**
      */
-
     public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;

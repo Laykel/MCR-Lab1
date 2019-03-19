@@ -5,7 +5,9 @@ import bouncers.bouncable.BorderSquare;
 
 public class BorderFactory extends ShapeFactory {
 
-    public BorderFactory(RendererBorder renderer){super(renderer);}
+    public BorderFactory(RendererBorder renderer) {
+        super(renderer);
+    }
 
     @Override
     public BorderDisk createDisk() {

@@ -7,10 +7,9 @@ import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 
 public class FilledDisk extends Disk {
-
-
-    public FilledDisk(Renderable renderer) { super(renderer); }
-
+    public FilledDisk(Renderable renderer) {
+        super(renderer);
+    }
 
     @Override
     public void draw() {
@@ -26,7 +25,6 @@ public class FilledDisk extends Disk {
     public Shape getShape() {
         return  new Ellipse2D.Double(x,y,size,size);
     }
-
 
     @Override
     public Color getColor() {
