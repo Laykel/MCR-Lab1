@@ -23,7 +23,7 @@ public class FilledDisk extends Disk {
 
     @Override
     public Shape getShape() {
-        return  new Ellipse2D.Double(x,y,size,size);
+        return new Ellipse2D.Double(x, y, size, size);
     }
 
     @Override

@@ -4,18 +4,23 @@ import bouncers.bouncable.BorderDisk;
 import bouncers.bouncable.BorderSquare;
 
 public class BorderFactory extends ShapeFactory {
+    private static BorderFactory instance;
 
-    public BorderFactory(RendererBorder renderer) {
-        super(renderer);
+    private BorderFactory() {}
+
+    public static BorderFactory getInstance() {
+        if (instance == null)
+            new BorderFactory();
+        return instance;
     }
 
     @Override
     public BorderDisk createDisk() {
-        return new BorderDisk(renderer);
+        return new BorderDisk(new RendererBorder());
     }
 
     @Override
     public BorderSquare createSquare() {
-        return new BorderSquare(renderer);
+        return new BorderSquare(new RendererBorder());
     }
 }
