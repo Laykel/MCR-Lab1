@@ -10,17 +10,17 @@ public  class FilledFactory extends ShapeFactory{
 
     public static FilledFactory getInstance() {
         if (instance == null)
-            new FilledFactory();
+            instance = new FilledFactory();
         return instance;
     }
 
     @Override
     public FilledDisk createDisk() {
-        return new FilledDisk(new RendererFilled());
+        return new FilledDisk();
     }
 
     @Override
     public FilledSquare createSquare() {
-        return new FilledSquare(new RendererFilled());
+        return new FilledSquare();
     }
 }

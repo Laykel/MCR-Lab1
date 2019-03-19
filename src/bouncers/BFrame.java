@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.Image;
 
 import java.awt.event.KeyAdapter;
 
@@ -24,8 +25,8 @@ public class BFrame extends JFrame implements Displayer {
     // The panel where the magic happens
     private JPanel panel;
 
-    // Graphics object representing the panel's area
-    Graphics2D g2d;
+    // Image object representing the panel's drawing area
+    private Image panelImage;
 
     /**
      * Constructor (private so that no instance can be made from the outside)
@@ -34,28 +35,29 @@ public class BFrame extends JFrame implements Displayer {
         super.setTitle("Bouncers");
 
         this.setSize(INITIAL_FRAME_WIDTH, INITIAL_FRAME_HEIGHT);
-        // this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         panel = new JPanel() {
             /**
              * Override of paintComponent to display the shapes
-             * (calls ShapeList.draw())
              *
              * @param g the graphics object on which to paint
              */
             @Override
             public void paintComponent(Graphics g) {
-                // Use Graphics2D for awesome antialiasing
-                g2d = (Graphics2D) g;
+                // // Use Graphics2D for awesome antialiasing
+                // Graphics2D g2d = (Graphics2D) g;
 
-                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                                     RenderingHints.VALUE_ANTIALIAS_ON);
+                // g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                //                      RenderingHints.VALUE_ANTIALIAS_ON);
+                // // Repaint background
+                // super.paintComponent(g2d);
+
                 // Repaint background
-                super.paintComponent(g2d);
+                super.paintComponent(g);
 
                 // Paint all shapes
-                // shapeList.drawAllShapes(g2d);
+                g.drawImage(panelImage, getWidth(), getHeight(), null);
             }
         };
         this.setContentPane(panel);
@@ -72,7 +74,7 @@ public class BFrame extends JFrame implements Displayer {
      */
     public static BFrame getInstance() {
         if (instance == null)
-            instance = new BFrame(); // Lazy instanciation
+            instance = new BFrame(); // Lazy instantiation
         return instance;
     }
 
@@ -93,7 +95,8 @@ public class BFrame extends JFrame implements Displayer {
 
     @Override
     public Graphics2D getGraphics() {
-        return g2d;
+        panelImage = panel.createImage(getWidth(), getHeight());
+        return (Graphics2D) panelImage.getGraphics();
     }
 
     @Override

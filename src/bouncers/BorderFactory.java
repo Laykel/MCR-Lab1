@@ -10,17 +10,17 @@ public class BorderFactory extends ShapeFactory {
 
     public static BorderFactory getInstance() {
         if (instance == null)
-            new BorderFactory();
+            instance = new BorderFactory();
         return instance;
     }
 
     @Override
     public BorderDisk createDisk() {
-        return new BorderDisk(new RendererBorder());
+        return new BorderDisk();
     }
 
     @Override
     public BorderSquare createSquare() {
-        return new BorderSquare(new RendererBorder());
+        return new BorderSquare();
     }
 }

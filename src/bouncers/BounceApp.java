@@ -24,17 +24,18 @@ public class BounceApp {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyChar()) {
-                    case 'b' :  for (int i = 0; i < 10; i++) {
-                                    // bouncers.add(new FilledDisk(new RendererFilled()));
-                                    // bouncers.add(BorderFactory.getInstance().createSquare());
-                                    // bouncers.add(BorderFactory.getInstance().createDisk());
+                    case 'b' :  System.out.println("Border");
+                                for (int i = 0; i < 10; i++) {
+                                    bouncers.add(BorderFactory.getInstance().createSquare());
+                                    bouncers.add(BorderFactory.getInstance().createDisk());
                                 }
                                 break;
-                    case 'f' : System.out.println("Full");
-                               break;
-                    case 'e' : System.out.println("Erase");
-                               break;
-                    case 'q' : System.exit(0);
+                    case 'f' :  System.out.println("Full");
+                                break;
+                    case 'e' :  System.out.println("Erase");
+                                bouncers.clear();
+                                break;
+                    case 'q' :  System.exit(0);
                 }
             }
         });

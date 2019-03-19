@@ -1,22 +1,22 @@
 package bouncers.bouncable;
 
-import bouncers.Renderable;
+import bouncers.*;
 
 import java.awt.*;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 
 public class BorderDisk extends Disk {
-    public BorderDisk(Renderable renderer) { super(renderer); }
+    public BorderDisk() {
+        super(new RendererFilled());
+    }
 
     @Override
     public void draw() {
-
     }
 
     @Override
     public void move() {
-
     }
 
     @Override
