@@ -11,14 +11,14 @@ public class BounceApp {
     private LinkedList<Bouncable> bouncers = new LinkedList<>();
 
     // The frame for the main view, singleton with access to panel properties
-    private BFrame frame;
+    private BouncersView frame;
 
     // Rate at which the redrawing will happen in milliseconds
     private static final int UPDATE_RATE = 40;
     private static final int NBR_OF_SHAPES = 10;
 
     public BounceApp() {
-        frame = BFrame.getInstance();
+        frame = BouncersView.getInstance();
 
         // Respond to key presses
         frame.addKeyListener(new KeyAdapter() {

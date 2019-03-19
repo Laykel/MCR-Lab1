@@ -11,9 +11,9 @@ import java.awt.image.BufferedImage;
  * Singleton extension of the JFrame class
  */
 @SuppressWarnings("serial")
-public class BFrame extends JFrame implements Displayer {
+public class BouncersView extends JFrame implements Displayer {
     // Singleton instance
-    private static BFrame instance;
+    private static BouncersView instance;
 
     private static final int INITIAL_FRAME_WIDTH = 800;
     private static final int INITIAL_FRAME_HEIGHT = 600;
@@ -22,43 +22,42 @@ public class BFrame extends JFrame implements Displayer {
     private JPanel panel;
 
     // Image object representing the panel's drawing area
-    private BufferedImage panelImage; //= (BufferedImage) panel.createImage(getWidth(), getHeight());
+    private BufferedImage panelImage;
 
     /**
      * Constructor (private so that no instance can be made from the outside)
      */
-    private BFrame() {
+    private BouncersView() {
         super.setTitle("Bouncers");
 
         this.setSize(INITIAL_FRAME_WIDTH, INITIAL_FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //panel = new JPanel();
+        panel = new JPanel();
 
-        panel = new JPanel() {
-            /**
-             * Override of paintComponent to display the shapes
-             *
-             * @param g the graphics object on which to paint
-             */
-            @Override
-            public void paintComponent(Graphics g) {
-                // // Use Graphics2D for awesome antialiasing
-                // Graphics2D g2d = (Graphics2D) g;
-
-                // g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                //                      RenderingHints.VALUE_ANTIALIAS_ON);
-                // // Repaint background
-                // super.paintComponent(g2d);
-
-                // Repaint background
-                super.paintComponent(g);
-
-                // Paint all shapes
-                g.drawImage(panelImage, getWidth(), getHeight(), null);
-                panelImage = null;
-            }
-        };
+//        panel = new JPanel() {
+//            /**
+//             * Override of paintComponent to display the shapes
+//             *
+//             * @param g the graphics object on which to paint
+//             */
+//            @Override
+//            public void paintComponent(Graphics g) {
+//                // // Use Graphics2D for awesome antialiasing
+//                // Graphics2D g2d = (Graphics2D) g;
+//
+//                // g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+//                //                      RenderingHints.VALUE_ANTIALIAS_ON);
+//                // // Repaint background
+//                // super.paintComponent(g2d);
+//
+//                // Repaint background
+//                super.paintComponent(g);
+//
+//                // Paint all shapes
+//                g.drawImage(panelImage, getWidth(), getHeight(), null);
+//            }
+//        };
 
         this.setContentPane(panel);
 
@@ -66,15 +65,16 @@ public class BFrame extends JFrame implements Displayer {
         panel.requestFocusInWindow();
 
         this.setVisible(true);
+        panelImage = (BufferedImage) panel.createImage(getWidth(), getHeight());
     }
 
     /**
      * Method to get a reference to BouncersView
      * @return a reference to BouncersView
      */
-    public static BFrame getInstance() {
+    public static BouncersView getInstance() {
         if (instance == null)
-            instance = new BFrame(); // Lazy instantiation
+            instance = new BouncersView(); // Lazy instantiation
         return instance;
     }
 
@@ -95,17 +95,14 @@ public class BFrame extends JFrame implements Displayer {
 
     @Override
     public Graphics2D getGraphics() {
-        if (panelImage == null) {
-            panelImage = (BufferedImage) panel.createImage(getWidth(), getHeight());
-        }
         return (Graphics2D) panelImage.getGraphics();
     }
 
     @Override
     public void repaint() {
-        //panel.getGraphics().drawImage(panelImage, 0, 0, null);
-        //panelImage = (BufferedImage) panel.createImage(getWidth(), getHeight());
-        panel.repaint();
+        panel.getGraphics().drawImage(panelImage, 0, 0, null);
+        panelImage = (BufferedImage) panel.createImage(getWidth(), getHeight());
+        //panel.repaint();
     }
 
     @Override

@@ -197,7 +197,7 @@
         <variable const="false" name="ka" type="KeyAdapter"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="552" isAbstract="false" name="BFrame" visibility="PUBLIC">
+    <entity entityType="CLASS" id="552" isAbstract="false" name="BouncersView" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="true" name="INITIAL_FRAME_WIDTH" type="int" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="true" name="INITIAL_FRAME_HEIGHT" type="int" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="true" name="getInstance" returnType="BFrame" view="DEFAULT" visibility="PUBLIC"/>
@@ -207,7 +207,7 @@
         <variable const="false" name="g" type="Graphics"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="1034" isAbstract="true" name="BShape" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="1034" isAbstract="true" name="Bouncer" visibility="PUBLIC"/>
     <entity entityType="CLASS" id="1035" isAbstract="true" name="Square" visibility="PUBLIC"/>
     <entity entityType="CLASS" id="1036" isAbstract="true" name="Disk" visibility="PUBLIC"/>
     <entity entityType="CLASS" id="1037" isAbstract="false" name="BorderSquare" visibility="PUBLIC"/>
