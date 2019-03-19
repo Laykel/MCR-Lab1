@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class BorderDisk extends Disk {
     public BorderDisk() {
-        super(new BorderRenderer());
+        super(BorderRenderer.getInstance());
     }
 
     @Override

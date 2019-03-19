@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class FilledSquare extends Square  {
     public FilledSquare() {
-        super(new FilledRenderer());
+        super(FilledRenderer.getInstance());
     }
 
     @Override

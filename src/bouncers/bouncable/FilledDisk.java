@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class FilledDisk extends Disk {
     public FilledDisk() {
-        super(new FilledRenderer());
+        super(FilledRenderer.getInstance());
     }
 
     @Override

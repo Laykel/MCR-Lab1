@@ -4,8 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.event.KeyAdapter;
+import java.awt.image.BufferedImage;
 
 /**
  * Singleton extension of the JFrame class
@@ -22,7 +22,7 @@ public class BFrame extends JFrame implements Displayer {
     private JPanel panel;
 
     // Image object representing the panel's drawing area
-    private Image panelImage;
+    private BufferedImage panelImage; //= (BufferedImage) panel.createImage(getWidth(), getHeight());
 
     /**
      * Constructor (private so that no instance can be made from the outside)
@@ -32,6 +32,8 @@ public class BFrame extends JFrame implements Displayer {
 
         this.setSize(INITIAL_FRAME_WIDTH, INITIAL_FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //panel = new JPanel();
 
         panel = new JPanel() {
             /**
@@ -94,13 +96,15 @@ public class BFrame extends JFrame implements Displayer {
     @Override
     public Graphics2D getGraphics() {
         if (panelImage == null) {
-            panelImage = panel.createImage(getWidth(), getHeight());
+            panelImage = (BufferedImage) panel.createImage(getWidth(), getHeight());
         }
         return (Graphics2D) panelImage.getGraphics();
     }
 
     @Override
     public void repaint() {
+        //panel.getGraphics().drawImage(panelImage, 0, 0, null);
+        //panelImage = (BufferedImage) panel.createImage(getWidth(), getHeight());
         panel.repaint();
     }
 

@@ -15,6 +15,7 @@ public class BounceApp {
 
     // Rate at which the redrawing will happen in milliseconds
     private static final int UPDATE_RATE = 40;
+    private static final int NBR_OF_SHAPES = 10;
 
     public BounceApp() {
         frame = BFrame.getInstance();
@@ -25,14 +26,14 @@ public class BounceApp {
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_B: System.out.println("Border");
-                                        for (int i = 0; i < 10; i++) {
+                                        for (int i = 0; i < NBR_OF_SHAPES; i++) {
                                             bouncers.add(BorderFactory.getInstance().createSquare());
                                             bouncers.add(BorderFactory.getInstance().createDisk());
                                         }
                                         break;
 
                     case KeyEvent.VK_F: System.out.println("Full");
-                                        for (int i = 0; i < 10; i++) {
+                                        for (int i = 0; i < NBR_OF_SHAPES; i++) {
                                             bouncers.add(FilledFactory.getInstance().createSquare());
                                             bouncers.add(FilledFactory.getInstance().createDisk());
                                         }
@@ -57,14 +58,14 @@ public class BounceApp {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                // Callback to paintComponent()
-                frame.repaint();
-
                 // Change every shape's coordinates
                 for (Bouncable bouncer : bouncers) {
                     bouncer.move();
                     bouncer.draw();
                 }
+
+                // Callback to paintComponent()
+                frame.repaint();
             }
         }, 0, UPDATE_RATE);
     }

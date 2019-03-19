@@ -1,11 +1,12 @@
 package bouncers.bouncable;
 
 import bouncers.BorderRenderer;
+
 import java.awt.Color;
 
 public class BorderSquare extends Square {
     public BorderSquare() {
-       super(new BorderRenderer());
+       super(BorderRenderer.getInstance());
     }
 
     @Override
