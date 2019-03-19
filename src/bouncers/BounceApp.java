@@ -16,8 +16,8 @@ public class BounceApp {
 
     private static final int UPDATE_RATE = 80;
 
-    // RendererBorder rendererBorder = new RendererBorder();
-    // RendererFill rendererFill = new RendererFill();
+    RendererBorder rendererBorder = new RendererBorder();
+    RendererFilled rendererFilled = new RendererFilled();
 
     public BounceApp() {
         frame = BFrame.getInstance();
@@ -45,19 +45,20 @@ public class BounceApp {
     public void loop() {
         // Schedule a task to run immediately, and then
         // every UPDATE_RATE per second
-        // new Timer().scheduleAtFixedRate(new TimerTask() {
-        //     @Override
-        //     public void run() {
-        //         // Change every shape's coordinates
-        //         for (Bouncable bouncer : bouncers) {
-        //             bouncer.move(frame.getWidth(), frame.getHeight());
-        //             bouncer.draw();
-        //         }
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                // Callback to paintComponent()
+                frame.repaint();
 
-        //         // Callback to paintComponent()
-        //         frame.repaint();
-        //     }
-        // }, 0, 1000 / UPDATE_RATE);
+                // Change every shape's coordinates
+                for (Bouncable bouncer : bouncers) {
+                    bouncer.move();
+                    rendererFilled.display(frame.getGraphics(), bouncer);
+                    rendererBorder.display(frame.getGraphics(), bouncer);
+                }
+            }
+        }, 0, 1000 / UPDATE_RATE);
     }
 
     public static void main(String ... args) {
