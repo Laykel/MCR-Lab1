@@ -1,7 +1,6 @@
 package bouncers.bouncable;
 
-import bouncers.Bouncable;
-import bouncers.Renderable;
+import bouncers.*;
 
 import java.util.Random;
 import java.awt.Graphics;
@@ -9,7 +8,7 @@ import java.awt.Graphics;
 /**
  * Class Shape
  */
-abstract public class Shape implements Bouncable {
+public abstract class Shape implements Bouncable {
     private static final int MIN_SIZE = 30;
     private static final int MAX_SIZE = 60;
     private static final int MAX_SPEED = 5;
@@ -58,6 +57,15 @@ abstract public class Shape implements Bouncable {
 
         // Execute movement
         setPosition(x + dx, y + dy);
+    }
+
+    public void move() {
+        move(500, 500);
+    }
+
+    @Override
+    public void draw() {
+        getRenderer().display(BFrame.getInstance().getGraphics(), this);
     }
 
     @Override

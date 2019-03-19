@@ -12,14 +12,6 @@ public class FilledDisk extends Disk {
     }
 
     @Override
-    public void draw() {
-    }
-
-    @Override
-    public void move() {
-    }
-
-    @Override
     public Shape getShape() {
         return new Ellipse2D.Double(x, y, size, size);
     }

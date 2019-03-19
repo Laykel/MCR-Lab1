@@ -5,7 +5,7 @@ import bouncers.Renderable;
 
 import java.awt.Graphics;
 
-public abstract class Disk extends Shape implements Bouncable {
+public abstract class Disk extends Shape {
     public Disk(Renderable renderer) {
         super(renderer);
     }

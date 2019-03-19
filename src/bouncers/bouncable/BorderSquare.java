@@ -11,21 +11,7 @@ public class BorderSquare extends Square {
     }
 
     @Override
-    public void draw() {
-    }
-
-    @Override
-    public void move() {
-    }
-
-    @Override
-    public Shape getShape() {
-        return new Rectangle(x,y,size,size);
-    }
-
-
-    @Override
     public Color getColor() {
-        return Color.GREEN;
+        return Color.RED;
     }
 }
