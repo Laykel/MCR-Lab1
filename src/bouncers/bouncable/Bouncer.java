@@ -59,12 +59,12 @@ public abstract class Bouncer implements Bouncable {
         getRenderer().display(BouncersView.getInstance().getGraphics(), this);
     }
 
-    public void setPosition(int x, int y) {
+    private void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void setMotion(int dx, int dy) {
+    private void setMotion(int dx, int dy) {
         this.dx = dx;
         this.dy = dy;
     }

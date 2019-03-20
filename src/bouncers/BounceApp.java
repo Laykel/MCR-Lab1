@@ -13,6 +13,11 @@ import java.awt.event.KeyEvent;
  */
 public class BounceApp {
     private LinkedList<Bouncable> bouncers = new LinkedList<>();
+    // To manage concurrency problems with the key listeners,
+    // we create a queue to avoid accessing the same global list
+    private LinkedList<Bouncable> bouncersQueue = new LinkedList<>();
+    // Also for concurrency, flag to empty list of bouncers
+    private boolean clearBouncers;
 
     // The frame for the main view, singleton with access to panel properties
     private BouncersView frame;
@@ -36,21 +41,23 @@ public class BounceApp {
                 // Get key code of the pressed key
                 switch (e.getKeyCode()) {
                     // Spawn empty shapes
-                    case KeyEvent.VK_B: for (int i = 0; i < NBR_OF_SHAPES; i++) {
-                                            bouncers.add(BorderFactory.getInstance().createSquare());
-                                            bouncers.add(BorderFactory.getInstance().createDisk());
+                    case KeyEvent.VK_B: clearBouncers = false;
+                                        for (int i = 0; i < NBR_OF_SHAPES; i++) {
+                                            bouncersQueue.add(BorderFactory.getInstance().createSquare());
+                                            bouncersQueue.add(BorderFactory.getInstance().createDisk());
                                         }
                                         break;
 
                     // Spawn full shapes
-                    case KeyEvent.VK_F: for (int i = 0; i < NBR_OF_SHAPES; i++) {
-                                            bouncers.add(FilledFactory.getInstance().createSquare());
-                                            bouncers.add(FilledFactory.getInstance().createDisk());
+                    case KeyEvent.VK_F: clearBouncers = false;
+                                        for (int i = 0; i < NBR_OF_SHAPES; i++) {
+                                            bouncersQueue.add(FilledFactory.getInstance().createSquare());
+                                            bouncersQueue.add(FilledFactory.getInstance().createDisk());
                                         }
                                         break;
 
                     // Clear the list of shapes
-                    case KeyEvent.VK_E: bouncers.clear();
+                    case KeyEvent.VK_E: clearBouncers = true;
                                         break;
 
                     // Quit app
@@ -70,6 +77,16 @@ public class BounceApp {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                // Copy temporary list
+                bouncers.addAll(bouncersQueue);
+                // Empty the queue
+                bouncersQueue.clear();
+
+                // Empty list if the flag was risen
+                if (clearBouncers) {
+                    bouncers.clear();
+                }
+
                 // Change every shape's coordinates
                 for (Bouncable bouncer : bouncers) {
                     bouncer.move();
