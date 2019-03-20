@@ -1,6 +1,6 @@
 package bouncers;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 
 /**
  * Singleton BorderRenderer class
@@ -20,6 +20,10 @@ public class BorderRenderer implements Renderable {
      */
     @Override
     public void display(Graphics2D g, Bouncable b) {
+        // Add a bit of antialiasing :-D
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setStroke(new BasicStroke(2));
         g.setColor(b.getColor());
         g.draw(b.getShape());
     }
