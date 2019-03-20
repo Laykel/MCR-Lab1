@@ -14,35 +14,42 @@ public class BounceApp {
     private BouncersView frame;
 
     // Rate at which the redrawing will happen in milliseconds
-    private static final int UPDATE_RATE = 40;
+    private static final int UPDATE_RATE = 10;
     private static final int NBR_OF_SHAPES = 10;
 
+    /**
+     * Constructor of the main class
+     * Create frame and adds its key listeners
+     */
     public BounceApp() {
         frame = BouncersView.getInstance();
+        frame.setTitle("Bouncers");
 
         // Respond to key presses
         frame.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
+                // Get key code of the pressed key
                 switch (e.getKeyCode()) {
-                    case KeyEvent.VK_B: System.out.println("Border");
-                                        for (int i = 0; i < NBR_OF_SHAPES; i++) {
+                    // Spawn empty shapes
+                    case KeyEvent.VK_B: for (int i = 0; i < NBR_OF_SHAPES; i++) {
                                             bouncers.add(BorderFactory.getInstance().createSquare());
                                             bouncers.add(BorderFactory.getInstance().createDisk());
                                         }
                                         break;
 
-                    case KeyEvent.VK_F: System.out.println("Full");
-                                        for (int i = 0; i < NBR_OF_SHAPES; i++) {
+                    // Spawn full shapes
+                    case KeyEvent.VK_F: for (int i = 0; i < NBR_OF_SHAPES; i++) {
                                             bouncers.add(FilledFactory.getInstance().createSquare());
                                             bouncers.add(FilledFactory.getInstance().createDisk());
                                         }
                                         break;
 
-                    case KeyEvent.VK_E: System.out.println("Erase");
-                                        bouncers.clear();
+                    // Clear the list of shapes
+                    case KeyEvent.VK_E: bouncers.clear();
                                         break;
 
+                    // Quit app
                     case KeyEvent.VK_Q: System.exit(0);
                 }
             }
@@ -51,6 +58,7 @@ public class BounceApp {
 
     /**
      * Main display loop
+     * Runs in a fixed rate timer loop
      */
     public void loop() {
         // Schedule a task to run immediately, and then
@@ -70,6 +78,10 @@ public class BounceApp {
         }, 0, UPDATE_RATE);
     }
 
+    /**
+     * Main program
+     * @param args arguments to the app, not used
+     */
     public static void main(String ... args) {
         new BounceApp().loop();
     }
