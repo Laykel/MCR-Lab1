@@ -4,7 +4,8 @@ import bouncers.*;
 import java.util.Random;
 
 /**
- * Class Bouncer
+ * Implementation of Bouncable
+ * @author Benjamin Le Guillou, Luc Wachter
  */
 public abstract class Bouncer implements Bouncable {
     // Shape properties

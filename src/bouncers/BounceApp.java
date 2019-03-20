@@ -7,6 +7,10 @@ import java.util.TimerTask;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * Main entrypoint for the Bouncers app
+ * @author Benjamin Le Guillou, Luc Wachter
+ */
 public class BounceApp {
     private LinkedList<Bouncable> bouncers = new LinkedList<>();
 
