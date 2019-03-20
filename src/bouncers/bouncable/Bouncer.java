@@ -22,6 +22,7 @@ public abstract class Bouncer implements Bouncable {
 
     /**
      * Constructor
+     * Sets the bouncer's properties randomly
      */
     public Bouncer() {
         Random rand = new Random();
@@ -39,6 +40,9 @@ public abstract class Bouncer implements Bouncable {
         dy = rand.nextInt((MAX_SPEED + 1) - -MAX_SPEED) + -MAX_SPEED;
     }
 
+    /**
+     * Execute the bouncer's movement, and bounce on walls
+     */
     @Override
     public void move() {
         // Adjust movement vectors
@@ -54,16 +58,29 @@ public abstract class Bouncer implements Bouncable {
         setPosition(x + dx, y + dy);
     }
 
+    /**
+     * Call the bouncer's renderer
+     */
     @Override
     public void draw() {
         getRenderer().display(BouncersView.getInstance().getGraphics(), this);
     }
 
+    /**
+     * Set the bouncer's position
+     * @param x its x position
+     * @param y its y position
+     */
     private void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Set the bouncer's velocity
+     * @param dx its velocity on the x axis
+     * @param dy its velocity on the y axis
+     */
     private void setMotion(int dx, int dy) {
         this.dx = dx;
         this.dy = dy;
