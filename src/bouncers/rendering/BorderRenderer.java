@@ -1,4 +1,6 @@
-package bouncers;
+package bouncers.rendering;
+
+import bouncers.bounceable.Bounceable;
 
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
@@ -16,12 +18,12 @@ public class BorderRenderer implements Renderable {
     private BorderRenderer() {}
 
     /**
-     * Draws a bouncable on a graphics object
+     * Draws a bounceable on a graphics object
      * @param g the graphics object to draw onto
-     * @param b the bouncable object to draw
+     * @param b the bounceable object to draw
      */
     @Override
-    public void display(Graphics2D g, Bouncable b) {
+    public void display(Graphics2D g, Bounceable b) {
         // Add a bit of antialiasing :-D
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);

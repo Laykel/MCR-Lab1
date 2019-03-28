@@ -1,4 +1,4 @@
-package bouncers.bouncable;
+package bouncers.bounceable;
 
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;

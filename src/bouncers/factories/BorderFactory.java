@@ -1,7 +1,7 @@
-package bouncers;
+package bouncers.factories;
 
-import bouncers.bouncable.BorderDisk;
-import bouncers.bouncable.BorderSquare;
+import bouncers.bounceable.BorderDisk;
+import bouncers.bounceable.BorderSquare;
 
 /**
  * Singleton BorderFactory class
@@ -25,7 +25,7 @@ public class BorderFactory extends ShapeFactory {
     }
 
     /**
-     * Creates a new Disk bouncable object
+     * Creates a new Disk bounceable object
      * @return a reference to this disk
      */
     @Override
@@ -34,7 +34,7 @@ public class BorderFactory extends ShapeFactory {
     }
 
     /**
-     * Creates a new Square bouncable object
+     * Creates a new Square bounceable object
      * @return a reference to this square
      */
     @Override

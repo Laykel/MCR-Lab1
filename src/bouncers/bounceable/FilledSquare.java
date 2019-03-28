@@ -1,22 +1,22 @@
-package bouncers.bouncable;
+package bouncers.bounceable;
 
-import bouncers.BorderRenderer;
-import bouncers.Renderable;
+import bouncers.rendering.FilledRenderer;
+import bouncers.rendering.Renderable;
 
 import java.awt.Color;
 
 /**
- * BorderDisk class for empty disks
+ * BorderSquare class for full square
  * @author Benjamin Le Guillou, Luc Wachter
  */
-public class BorderDisk extends Disk {
+public class FilledSquare extends Square  {
     /**
      * Get the bouncer's color
      * @return the bouncer's color
      */
     @Override
     public Color getColor() {
-        return Color.GREEN;
+        return Color.ORANGE;
     }
 
     /**
@@ -25,6 +25,6 @@ public class BorderDisk extends Disk {
      */
     @Override
     public Renderable getRenderer() {
-        return BorderRenderer.getInstance();
+        return FilledRenderer.getInstance();
     }
 }

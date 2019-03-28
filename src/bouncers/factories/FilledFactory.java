@@ -1,7 +1,7 @@
-package bouncers;
+package bouncers.factories;
 
-import bouncers.bouncable.FilledDisk;
-import bouncers.bouncable.FilledSquare;
+import bouncers.bounceable.FilledDisk;
+import bouncers.bounceable.FilledSquare;
 
 /**
  * Singleton FilledFactory class
@@ -25,7 +25,7 @@ public  class FilledFactory extends ShapeFactory{
     }
 
     /**
-     * Creates a new Disk bouncable object
+     * Creates a new Disk bounceable object
      * @return a reference to this disk
      */
     @Override
@@ -34,7 +34,7 @@ public  class FilledFactory extends ShapeFactory{
     }
 
     /**
-     * Creates a new Square bouncable object
+     * Creates a new Square bounceable object
      * @return a reference to this square
      */
     @Override

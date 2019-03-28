@@ -1,9 +1,11 @@
-package bouncers;
+package bouncers.bounceable;
+
+import bouncers.rendering.Renderable;
 
 import java.awt.Shape;
 import java.awt.Color;
 
-public interface Bouncable {
+public interface Bounceable {
     /**
      * Call the bouncer's renderer
      */

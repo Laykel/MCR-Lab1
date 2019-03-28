@@ -1,4 +1,4 @@
-package bouncers;
+package bouncers.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

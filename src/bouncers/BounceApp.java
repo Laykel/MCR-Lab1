@@ -1,5 +1,11 @@
 package bouncers;
 
+import bouncers.bounceable.Bounceable;
+import bouncers.factories.BorderFactory;
+import bouncers.factories.FilledFactory;
+import bouncers.gui.BouncersView;
+import bouncers.gui.Displayer;
+
 import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -12,15 +18,15 @@ import java.awt.event.KeyEvent;
  * @author Benjamin Le Guillou, Luc Wachter
  */
 public class BounceApp {
-    private LinkedList<Bouncable> bouncers = new LinkedList<>();
+    private LinkedList<Bounceable> bouncers = new LinkedList<>();
     // To manage concurrency problems with the key listeners,
     // we create a queue to avoid accessing the same global list
-    private LinkedList<Bouncable> bouncersQueue = new LinkedList<>();
+    private LinkedList<Bounceable> bouncersQueue = new LinkedList<>();
     // Also for concurrency, flag to empty list of bouncers
     private boolean clearBouncers;
 
     // The frame for the main view, singleton with access to panel properties
-    private BouncersView frame;
+    private Displayer frame;
 
     // Rate at which the redrawing will happen in milliseconds
     private static final int UPDATE_RATE = 10;
@@ -88,7 +94,7 @@ public class BounceApp {
                 }
 
                 // Change every shape's coordinates
-                for (Bouncable bouncer : bouncers) {
+                for (Bounceable bouncer : bouncers) {
                     bouncer.move();
                     bouncer.draw();
                 }

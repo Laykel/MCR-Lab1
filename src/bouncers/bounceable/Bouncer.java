@@ -1,13 +1,14 @@
-package bouncers.bouncable;
+package bouncers.bounceable;
 
-import bouncers.*;
+import bouncers.gui.BouncersView;
+
 import java.util.Random;
 
 /**
- * Implementation of Bouncable
+ * Implementation of Bounceable
  * @author Benjamin Le Guillou, Luc Wachter
  */
-public abstract class Bouncer implements Bouncable {
+public abstract class Bouncer implements Bounceable {
     // Shape properties
     private static final int MIN_SIZE = 30;
     private static final int MAX_SIZE = 60;
