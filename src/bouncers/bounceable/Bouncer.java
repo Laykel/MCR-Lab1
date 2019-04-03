@@ -21,13 +21,13 @@ public abstract class Bouncer implements Bounceable {
     // Movement vector
     private int dx, dy;
 
+    static Random rand = new Random();
+
     /**
      * Constructor
      * Sets the bouncer's properties randomly
      */
     public Bouncer() {
-        Random rand = new Random();
-
         // Set size
         size = rand.nextInt(MAX_SIZE - MIN_SIZE) + MIN_SIZE;
 
